@@ -12,12 +12,8 @@ public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
 
-    public Course addCourse(String courseName, Trainer courseMainTrainer, Trainer courseSecondTrainer) {
-
-        Course course = new Course(courseName, courseMainTrainer, courseSecondTrainer);
-
-        return courseRepository.save(course);
-
+    public Course addCourse(Course courseToAdd) {
+        return courseRepository.save(courseToAdd);
     }
 
 

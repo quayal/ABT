@@ -18,22 +18,16 @@ public class Course {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
-    private Trainer mainTrainer;
+    private Trainer trainer;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
-    private Trainer secondTrainer;
+    private Facilitator facilitator;
 
-    public Course (String name, Trainer mainTrainer, Trainer secondTrainer) {
 
+    public Course(String name, Trainer trainer, Facilitator facilitator) {
         this.name = name;
-        this.mainTrainer = mainTrainer;
-        this.secondTrainer = secondTrainer;
-
-    }
-
-    public Course(String name, Trainer mainTrainer) {
-        this.name = name;
-        this.mainTrainer = mainTrainer;
+        this.trainer = trainer;
+        this.facilitator = facilitator;
     }
 }

@@ -2,6 +2,7 @@ package pl.quayal.app.server.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.quayal.app.server.model.Course;
@@ -17,9 +18,9 @@ public class CourseController {
     private CourseService courseService;
 
     @PostMapping
-    public Course addCourse(String courseName, Trainer mainTrainer, Trainer secondTrainer) {
+    public Course addCourse(@RequestBody Course courseToAdd) {
 
-        return courseService.addCourse(courseName, mainTrainer, secondTrainer);
+        return courseService.addCourse(courseToAdd);
 
     }
 
