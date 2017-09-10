@@ -14,16 +14,21 @@ import java.util.Set;
 public class Trainer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String firstName;
 
     private String lastName;
 
-    @OneToMany(mappedBy = "mainTrainer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "mainTrainer")
     private Set<Course> coursesLed;
 
-    @OneToMany(mappedBy = "secondTrainer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "secondTrainer")
     private Set<Course> coursesFacilitated;
+
+    public Trainer(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }
