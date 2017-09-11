@@ -21,11 +21,7 @@ public class Trainer {
 
     private String lastName;
 
-    @OneToMany(mappedBy = "trainer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "trainer", orphanRemoval = true)
     private Set<Course> courses;
 
-    Trainer(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
 }

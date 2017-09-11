@@ -24,10 +24,4 @@ public class Course {
     @JoinColumn
     private Facilitator facilitator;
 
-
-    public Course(String name, Trainer trainer, Facilitator facilitator) {
-        this.name = name;
-        this.trainer = trainer;
-        this.facilitator = facilitator;
-    }
 }

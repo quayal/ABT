@@ -20,11 +20,8 @@ public class Facilitator extends Trainer{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "facilitator", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "facilitator")
     private Set<Course> courses;
 
-    public Facilitator(String firstName, String lastName) {
-        super(firstName, lastName);
-    }
 }
 
