@@ -24,4 +24,7 @@ public class Trainer {
     @OneToMany(mappedBy = "trainer", orphanRemoval = true)
     private Set<Course> courses;
 
+    @OneToMany(mappedBy = "facilitator", orphanRemoval = true)
+    private Set<Course> coursesFacilitated;
+
 }

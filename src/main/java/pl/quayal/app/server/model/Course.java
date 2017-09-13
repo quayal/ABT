@@ -22,6 +22,6 @@ public class Course {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn
-    private Facilitator facilitator;
+    private Trainer facilitator;
 
 }
