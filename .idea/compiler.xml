@@ -9,6 +9,10 @@
       <module name="ABT_test" target="1.8" />
       <module name="ABTProject_main" target="1.8" />
       <module name="ABTProject_test" target="1.8" />
+      <module name="app_main" target="1.8" />
+      <module name="app_test" target="1.8" />
+      <module name="server_main" target="1.8" />
+      <module name="server_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
