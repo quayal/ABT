@@ -1,5 +1,7 @@
-package pl.quayal.app.server.model;
+package pl.quayal.app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,10 +23,12 @@ public class Trainer {
 
     private String lastName;
 
-    @OneToMany(mappedBy = "trainer", orphanRemoval = true)
+    @OneToMany(mappedBy = "trainer", orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Course> courses;
 
-    @OneToMany(mappedBy = "facilitator", orphanRemoval = true)
+    @OneToMany(mappedBy = "facilitator", orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Course> coursesFacilitated;
 
 }

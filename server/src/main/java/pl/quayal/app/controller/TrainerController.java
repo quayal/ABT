@@ -1,11 +1,11 @@
-package pl.quayal.app.server.controller;
+package pl.quayal.app.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.quayal.app.server.model.Trainer;
-import pl.quayal.app.server.service.TrainerService;
+import pl.quayal.app.model.Trainer;
+import pl.quayal.app.service.TrainerService;
 
 @RestController
 @RequestMapping("/trainer")

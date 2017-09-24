@@ -1,9 +1,9 @@
-package pl.quayal.app.server.service;
+package pl.quayal.app.service;
 
 
 import org.springframework.stereotype.Service;
-import pl.quayal.app.server.model.Course;
-import pl.quayal.app.server.repository.CourseRepository;
+import pl.quayal.app.model.Course;
+import pl.quayal.app.repository.CourseRepository;
 
 @Service
 public class CourseService {
@@ -16,6 +16,10 @@ public class CourseService {
 
     public Course addCourse(Course courseToAdd) {
         return courseRepository.save(courseToAdd);
+    }
+
+    public Course getCourse(Long id) {
+        return courseRepository.findOne(id);
     }
 
 

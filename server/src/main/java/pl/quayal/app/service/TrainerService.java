@@ -1,8 +1,8 @@
-package pl.quayal.app.server.service;
+package pl.quayal.app.service;
 
 import org.springframework.stereotype.Service;
-import pl.quayal.app.server.model.Trainer;
-import pl.quayal.app.server.repository.TrainerRepository;
+import pl.quayal.app.model.Trainer;
+import pl.quayal.app.repository.TrainerRepository;
 
 @Service
 public class TrainerService {
