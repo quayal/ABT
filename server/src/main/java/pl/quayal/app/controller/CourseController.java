@@ -3,6 +3,7 @@ package pl.quayal.app.controller;
 
 import org.springframework.web.bind.annotation.*;
 import pl.quayal.app.model.Course;
+import pl.quayal.app.model.Trainer;
 import pl.quayal.app.service.CourseService;
 
 @RestController
@@ -25,6 +26,12 @@ public class CourseController {
 
     @GetMapping("/{courseId}")
     public Course getCourse(@PathVariable ("courseId") Long id) {
+        return courseService.getCourse(id);
+    }
+
+    @PostMapping("/{courseId}/trainers")
+    public Course addTrainerToCourse(@PathVariable ("courseId") Long id, @RequestBody Trainer trainerToAdd){
+        courseService.getCourse(id).setTrainer(trainerToAdd);
         return courseService.getCourse(id);
     }
 }
