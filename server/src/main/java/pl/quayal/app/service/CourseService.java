@@ -18,10 +18,7 @@ public class CourseService {
         return courseRepository.save(courseToAdd);
     }
 
-    public Course getCourse(Long id) {
-        return courseRepository.findOne(id);
+    public Course getCourse(Long courseId) {
+        return courseRepository.findOne(courseId);
     }
-
-
-
 }
