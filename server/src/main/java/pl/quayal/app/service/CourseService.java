@@ -14,11 +14,11 @@ public class CourseService {
         this.courseRepository = courseRepository;
     }
 
-    public Course addCourse(Course courseToAdd) {
-        return courseRepository.save(courseToAdd);
-    }
-
     public Course getCourse(Long courseId) {
         return courseRepository.findOne(courseId);
+    }
+
+    public Course saveCourse(Course courseToSave) {
+        return courseRepository.save(courseToSave);
     }
 }

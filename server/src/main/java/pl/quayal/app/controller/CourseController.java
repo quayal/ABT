@@ -21,7 +21,7 @@ public class CourseController {
     @PostMapping
     public Course addCourse(@RequestBody Course courseToAdd) {
 
-        return courseService.addCourse(courseToAdd);
+        return courseService.saveCourse(courseToAdd);
     }
 
     @GetMapping("/{courseId}")
@@ -31,8 +31,9 @@ public class CourseController {
 
     @PostMapping("/{courseId}/trainers")
     public Course addTrainerToCourse(@PathVariable ("courseId") Long id, @RequestBody Trainer trainerToAdd){
-        courseService.getCourse(id).setTrainer(trainerToAdd);
-        return courseService.getCourse(id);
+        Course courseToUpdate = courseService.getCourse(id);
+        courseToUpdate.setTrainer(trainerToAdd);
+        return courseService.saveCourse(courseToUpdate);
     }
 }
 
