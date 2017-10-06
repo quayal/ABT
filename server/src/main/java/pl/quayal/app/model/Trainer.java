@@ -31,4 +31,18 @@ public class Trainer {
     @JsonIgnore
     private Set<Course> coursesFacilitated;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Trainer trainer = (Trainer) o;
+
+        return id != null ? id.equals(trainer.id) : trainer.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }
