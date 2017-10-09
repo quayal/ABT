@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -25,11 +26,11 @@ public class Trainer {
 
     @OneToMany(mappedBy = "trainer", orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonIgnore
-    private Set<Course> courses;
+    private Set<Course> courses = new HashSet<>();
 
     @OneToMany(mappedBy = "facilitator", orphanRemoval = true, fetch = FetchType.LAZY)
     @JsonIgnore
-    private Set<Course> coursesFacilitated;
+    private Set<Course> coursesFacilitated = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {
