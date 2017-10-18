@@ -3,8 +3,11 @@ package pl.quayal.app.service;
 
 import org.springframework.stereotype.Service;
 import pl.quayal.app.model.Course;
+import pl.quayal.app.model.Participant;
 import pl.quayal.app.model.Trainer;
 import pl.quayal.app.repository.CourseRepository;
+
+import java.util.Set;
 
 @Service
 public class CourseService {
@@ -23,9 +26,21 @@ public class CourseService {
         return courseRepository.save(courseToSave);
     }
 
-    public Course updateCourse(Long id, Trainer trainerToAdd){
+    public Course addTrainerToCourse(Long id, Trainer trainerToAdd){
         Course courseToUpdate = courseRepository.findOne(id);
         courseToUpdate.setTrainer(trainerToAdd);
+        return courseRepository.save(courseToUpdate);
+    }
+
+    public Course addParticipantsToCourse(Long id, Set participantsToAdd) {
+        Course courseToUpdate = courseRepository.findOne(id);
+        courseToUpdate.addParticipants(participantsToAdd);
+        return courseRepository.save(courseToUpdate);
+    }
+
+    public Course removeParticipantFromCourse(Long courseId, Long participantId) {
+        Course courseToUpdate = courseRepository.findOne(courseId);
+        courseToUpdate.removeParticipantFromCourse(participantId);
         return courseRepository.save(courseToUpdate);
     }
 }

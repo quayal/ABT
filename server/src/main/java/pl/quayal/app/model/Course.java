@@ -34,6 +34,12 @@ public class Course {
         this.trainer = trainer;
     }
 
+    public void addParticipants(Set participants) {this.participants.addAll(participants); }
+
+    public void removeParticipantFromCourse(Long participantId) {
+        this.participants.remove(participantId);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
