@@ -32,7 +32,7 @@ public class CourseService {
         return courseRepository.save(courseToUpdate);
     }
 
-    public Course addParticipantsToCourse(Long id, Set participantsToAdd) {
+    public Course addParticipantsToCourse(Long id, Set<Participant> participantsToAdd) {
         Course courseToUpdate = courseRepository.findOne(id);
         courseToUpdate.addParticipants(participantsToAdd);
         return courseRepository.save(courseToUpdate);

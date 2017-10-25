@@ -26,7 +26,7 @@ public class Course {
     @JoinColumn
     private Trainer facilitator;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "participant_course", joinColumns = @JoinColumn(name = "course_id"), inverseJoinColumns = @JoinColumn(name = "participant_id"))
     private Set<Participant> participants = new HashSet<>();
 
@@ -34,7 +34,7 @@ public class Course {
         this.trainer = trainer;
     }
 
-    public void addParticipants(Set participants) {this.participants.addAll(participants); }
+    public void addParticipants(Set<Participant> participants) {this.participants.addAll(participants); }
 
     public void removeParticipantFromCourse(Long participantId) {
         this.participants.remove(participantId);

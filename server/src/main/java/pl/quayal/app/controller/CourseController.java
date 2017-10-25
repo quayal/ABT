@@ -41,7 +41,7 @@ public class CourseController {
     }
 
     @PostMapping("/{courseId}/participants")
-    public Course addParticipantsToCourse (@PathVariable ("courseId") Long id, @RequestBody Set participantsToAdd) {
+    public Course addParticipantsToCourse (@PathVariable ("courseId") Long id, @RequestBody Set<Participant> participantsToAdd) {
         return courseService.addParticipantsToCourse(id, participantsToAdd);
     }
 
