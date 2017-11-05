@@ -2,6 +2,8 @@ package pl.quayal.app.model;
 
 
 import lombok.*;
+import pl.quayal.app.repository.ParticipantRepository;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,26 +20,34 @@ public class Course {
 
     private String name;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn
     private Trainer trainer;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn
     private Trainer facilitator;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
+
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "participant_course", joinColumns = @JoinColumn(name = "course_id"), inverseJoinColumns = @JoinColumn(name = "participant_id"))
     private Set<Participant> participants = new HashSet<>();
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn
+    private Client client;
+
+    private ParticipantRepository participantRepository;
 
     public void setTrainer(Trainer trainer) {
         this.trainer = trainer;
     }
 
-    public void addParticipants(Set<Participant> participants) {this.participants.addAll(participants); }
+    public void addParticipants(Set<Participant> participantsToAdd) {participants.addAll(participantsToAdd); }
 
     public void removeParticipantFromCourse(Long participantId) {
-        this.participants.remove(participantId);
+        participants.remove(participantRepository.findOne(participantId));
     }
 
     @Override

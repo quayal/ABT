@@ -15,10 +15,7 @@ import java.util.Set;
 
 public class CourseController {
 
-
     private CourseService courseService;
-
-
 
     public CourseController(CourseService courseService) {
         this.courseService = courseService;
@@ -26,7 +23,6 @@ public class CourseController {
 
     @PostMapping
     public Course addCourse(@RequestBody Course courseToAdd) {
-
         return courseService.addCourse(courseToAdd);
     }
 

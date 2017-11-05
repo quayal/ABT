@@ -2,8 +2,8 @@ package pl.quayal.app.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import pl.quayal.app.model.Participant;
+import pl.quayal.app.model.Client;
 
 @Repository
-public interface ParticipantRepository extends CrudRepository<Participant, Long> {
+public interface ClientRepository extends CrudRepository<Client, Long> {
 }
