@@ -24,7 +24,7 @@ public class Participant {
 
     private String email;
 
-    private Long phoneNumber;
+    private String phoneNumber;
 
     @ManyToMany(mappedBy = "participants")
     private Set<Course> courses = new HashSet<>();

@@ -20,7 +20,7 @@ public class Client {
 
     private String email;
 
-    private String number;
+    private String phoneNumber;
 
     @OneToMany(mappedBy = "client")
     private Set<Course> courses = new HashSet<>();
